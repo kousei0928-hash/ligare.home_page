@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ligare-hiroshima.jp/sitemap.xml
