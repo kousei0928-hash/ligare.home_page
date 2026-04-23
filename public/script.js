@@ -116,7 +116,6 @@ const setupClickableCards = (selector) => {
   });
 };
 
-setupClickableCards(".activity-list li[data-href]");
 setupClickableCards(".work-card[data-href]");
 setupClickableCards(".card[data-href]");
 
@@ -324,7 +323,7 @@ initCarousel({
   dotClassName: "works-dot",
 });
 
-initCarousel({
+const activityCarouselOptions = {
   rootSelector: "[data-activity-carousel]",
   trackSelector: ".activity-list",
   slideSelector: ".activity-list li",
@@ -336,7 +335,21 @@ initCarousel({
   enabledMediaQuery: "(max-width: 900px)",
   stepByViewport: true,
   loop: true,
-});
+};
+
+window.__initActivityCarousel = () => {
+  setupClickableCards(".activity-list li[data-href]");
+  initCarousel(activityCarouselOptions);
+};
+
+if (window.__ACTIVITIES_LOADER_PRESENT) {
+  if (window.__ACTIVITIES_READY) {
+    window.__initActivityCarousel();
+  }
+  // else: activities-loader.js will call __initActivityCarousel when fetch completes
+} else {
+  window.__initActivityCarousel();
+}
 
 const contactForms = document.querySelectorAll(".contact-form");
 contactForms.forEach((form) => {

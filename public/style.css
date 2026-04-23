@@ -225,6 +225,27 @@ body.is-overlay-light .page-overlay {
   text-wrap: balance;
 }
 
+.hero-heading .hero-line,
+.hero-heading .hero-line-final {
+  display: inline-block;
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+.hero-heading .hero-line {
+  animation: heroWordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--hero-line-delay, 0s);
+}
+
+.hero-heading .hero-line-final {
+  background: linear-gradient(120deg, #1f5aa5 0%, #2a86bb 55%, #2ba9c8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heroFinalIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--hero-line-delay, 0s);
+}
+
 .hero-subcopy {
   margin: 1rem 0 0;
   font-size: clamp(1rem, 1.55vw, 1.3rem);
@@ -803,6 +824,13 @@ h2::after {
   min-height: 150px;
   object-fit: cover;
   border-radius: 0.65rem;
+}
+
+.activity-thumb-placeholder {
+  width: 100%;
+  min-height: 150px;
+  border-radius: 0.65rem;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
 }
 
 .activity-media-link {
