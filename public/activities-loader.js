@@ -98,6 +98,28 @@
     }
   }
 
+  const HOME_LIMIT = 3;
+
+  function updateViewAllLink(totalCount) {
+    const carousel = document.querySelector("[data-activity-carousel]");
+    if (!carousel) return;
+    const section = carousel.closest(".container") || carousel.parentElement;
+    if (!section) return;
+
+    let link = section.querySelector(".activity-view-all");
+    if (totalCount > HOME_LIMIT) {
+      if (!link) {
+        link = document.createElement("a");
+        link.className = "activity-view-all";
+        link.href = "/activities";
+        link.textContent = "すべての活動を見る →";
+        section.appendChild(link);
+      }
+    } else if (link) {
+      link.remove();
+    }
+  }
+
   async function loadActivities() {
     const list = document.querySelector(
       "[data-activity-carousel] .activity-list"
@@ -110,7 +132,7 @@
     try {
       const url =
         SUPABASE_URL +
-        "/rest/v1/activities?published=eq.true&select=*&order=date.desc,created_at.desc&limit=20";
+        "/rest/v1/activities?published=eq.true&select=*&order=date.desc,created_at.desc&limit=50";
       const res = await fetch(url, {
         headers: { apikey: ANON_KEY, Authorization: "Bearer " + ANON_KEY }
       });
@@ -120,7 +142,9 @@
         const carousel = list.closest("[data-activity-carousel]");
         const dots = carousel ? carousel.querySelector(".works-dots") : null;
         if (dots) dots.innerHTML = "";
-        list.innerHTML = data.map(renderActivityHtml).join("");
+        const visible = data.slice(0, HOME_LIMIT);
+        list.innerHTML = visible.map(renderActivityHtml).join("");
+        updateViewAllLink(data.length);
       }
     } catch (err) {
       console.warn("Activities fetch failed, using static fallback:", err);
