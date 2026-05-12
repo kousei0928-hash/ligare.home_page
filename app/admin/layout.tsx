@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "管理画面 | リガーレ(Ligare)",
+  title: "管理画面 | Ligare（リガーレ）",
   robots: {
     index: false,
     follow: false

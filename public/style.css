@@ -2,7 +2,7 @@
   --bg-main: #f6f6f3;
   --bg-alt: #efefe9;
   --text: #242424;
-  --container: 1080px;
+  --container: 1280px;
   --hero-bg-image: none;
   --hero-bg-position: center;
   --hero-bg-size: cover;
@@ -190,9 +190,9 @@ body.is-overlay-light .page-overlay {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 0 0.6rem;
+  padding: 0 1.2rem;
 }
 
 .hero-message {
@@ -206,17 +206,32 @@ body.is-overlay-light .page-overlay {
 
 .hero-copy {
   min-width: 0;
-  max-width: 670px;
+  max-width: 760px;
   padding-right: 0.6rem;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.32rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(42, 134, 187, 0.1);
+  color: #1f5aa5;
+  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  animation: heroWordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0s;
 }
 
 .hero-heading {
   margin: 0;
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
-  font-size: clamp(4rem, 9.45vw, 7rem);
+  font-size: clamp(3rem, 6.2vw, 5.2rem);
   font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: 0.03em;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
   color: #033c5d;
   text-wrap: balance;
 }
@@ -234,7 +249,7 @@ body.is-overlay-light .page-overlay {
 }
 
 .hero-heading .hero-line-final {
-  background: linear-gradient(120deg, #1f5aa5 0%, #2a86bb 55%, #2ba9c8 100%);
+  background: linear-gradient(120deg, #1A3D6A 0%, #1E78AD 55%, #2DB8AE 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -243,14 +258,38 @@ body.is-overlay-light .page-overlay {
 }
 
 .hero-subcopy {
-  margin: 1.3rem 0 0;
-  font-size: clamp(1rem, 1.55vw, 1.3rem);
-  line-height: 1.85;
+  margin: 1.5rem 0 0;
+  max-width: 38rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.95;
   letter-spacing: 0.04em;
   color: rgba(3, 60, 93, 0.82);
   opacity: 0;
   animation: heroWordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 1.8s;
+  animation-delay: 1.9s;
+}
+
+.hero-pills {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: heroWordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 2.3s;
+}
+
+.hero-pills li {
+  padding: 0.36rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(42, 134, 187, 0.28);
+  color: #1f3b58;
+  font-size: clamp(0.8rem, 1vw, 0.94rem);
+  letter-spacing: 0.04em;
+  font-weight: 600;
 }
 
 .hero-connector {
@@ -472,7 +511,9 @@ body.is-overlay-light .page-overlay {
     animation: none;
   }
 
-  .hero-subcopy {
+  .hero-subcopy,
+  .hero-eyebrow,
+  .hero-pills {
     opacity: 1;
     animation: none;
   }
@@ -594,7 +635,11 @@ h2::after {
 }
 
 .card {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.6rem;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.7);
   border: 2px solid transparent;
@@ -715,6 +760,22 @@ h2::after {
   border: 2px solid transparent;
   box-shadow: 0 8px 20px rgba(96, 95, 95, 0.08);
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.works-text-card .works-image {
+  display: block;
+  width: calc(100% + 2.8rem);
+  margin: -1.6rem -1.4rem 1.2rem;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+  background-color: rgba(31, 90, 165, 0.06);
+}
+
+.works-text-card .works-image.is-contain {
+  object-fit: contain;
+  background-color: #ffffff;
 }
 
 .works-text-card:hover,
@@ -851,8 +912,9 @@ h2::after {
   overflow-wrap: anywhere;
 }
 
-.member-toggle {
-  margin-top: 0.65rem;
+.member-toggle,
+.member-portfolio {
+  margin-top: 0.85rem;
   align-self: flex-start;
   padding: 0.42rem 0.9rem;
   border-radius: 999px;
@@ -862,6 +924,12 @@ h2::after {
   font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.member-portfolio:hover {
+  background: #a9c7e8;
+  color: #16314b;
 }
 
 .work-list {
@@ -878,11 +946,9 @@ h2::after {
 }
 
 .activity-list li {
-  display: grid;
-  grid-template-columns: clamp(180px, 24vw, 260px) 1fr;
-  gap: 1rem;
-  padding: 1rem 1.2rem;
-  border-radius: 0.8rem;
+  display: block;
+  padding: 1.4rem 1.5rem;
+  border-radius: 0.9rem;
   background: rgba(255, 255, 255, 0.7);
   border: 2px solid transparent;
   box-shadow: 0 8px 20px rgba(96, 95, 95, 0.08);
@@ -890,7 +956,47 @@ h2::after {
 }
 
 .activity-list li[data-href] {
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.activity-list li[data-href] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.activity-list li[data-href]::before,
+.activity-list li[data-href]::after {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.activity-list li[data-href]::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.22);
+  z-index: 2;
+}
+
+.activity-list li[data-href]::after {
+  content: "詳細を見る";
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 3;
+}
+
+.activity-list li[data-href]:hover::before,
+.activity-list li[data-href]:hover::after,
+.activity-list li[data-href]:focus-within::before,
+.activity-list li[data-href]:focus-within::after {
+  opacity: 1;
 }
 
 .work-card[data-href] {
@@ -906,15 +1012,16 @@ h2::after {
 
 .activity-list img {
   width: 100%;
-  height: 100%;
-  min-height: 150px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
   border-radius: 0.65rem;
+  background-color: rgba(31, 90, 165, 0.06);
 }
 
 .activity-thumb-placeholder {
   width: 100%;
-  min-height: 150px;
+  aspect-ratio: 16 / 9;
   border-radius: 0.65rem;
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
 }
@@ -1600,8 +1707,8 @@ h2::after {
 
   .activity-list img {
     width: 100%;
-    height: 180px;
-    min-height: 0;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 
   .activity-content {

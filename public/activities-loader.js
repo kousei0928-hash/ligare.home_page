@@ -38,11 +38,7 @@
 
   function renderActivityHtml(a) {
     const dateObj = formatDate(a.date);
-    const img = imageUrl(a.image_path);
     const titleEsc = escapeHtml(a.title || "");
-    const imgTag = img
-      ? '<img src="' + escapeHtml(img) + '" alt="' + titleEsc + '" loading="lazy" />'
-      : '<div class="activity-thumb-placeholder" aria-hidden="true"></div>';
     const descHtml = a.description
       ? "<p>" + escapeHtml(a.description) + "</p>"
       : "";
@@ -58,13 +54,6 @@
         '" tabindex="0" role="link" aria-label="' +
         titleEsc +
         ' の詳細を見る">' +
-        '<a class="activity-media-link" href="' +
-        url +
-        '" aria-label="' +
-        titleEsc +
-        ' の詳細を見る">' +
-        imgTag +
-        "</a>" +
         '<div class="activity-content">' +
         timeHtml +
         "<h3>" +
@@ -78,7 +67,6 @@
     }
     return (
       "<li>" +
-      imgTag +
       '<div class="activity-content">' +
       timeHtml +
       "<h3>" +
