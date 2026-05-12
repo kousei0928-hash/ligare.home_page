@@ -7,11 +7,11 @@ import styles from "./activities.module.css";
 export const metadata: Metadata = {
   title: "活動一覧 | リガーレ(Ligare)",
   description:
-    "リガーレ(Ligare)の全活動一覧。広島大学発の学生スタートアップとしての受賞歴、コラボレーション、イベント開催など、これまでの取り組みをまとめています。",
+    "リガーレ(Ligare)の全活動一覧。広島大学発のAI実装チームとしての受賞歴、企業・大学とのコラボレーション、AIセミナーやイベント開催など、これまでの取り組みをまとめています。",
   alternates: { canonical: "/activities" },
   openGraph: {
     title: "活動一覧 | リガーレ(Ligare)",
-    description: "リガーレの全活動一覧。受賞歴、コラボ、イベントなどの取り組みを掲載。",
+    description: "広島大学発のAI実装チームLigareの全活動一覧。受賞歴、コラボ、AIセミナーなどの取り組みを掲載。",
     url: "/activities",
     type: "website"
   }

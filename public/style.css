@@ -35,10 +35,6 @@ body {
 .page-background {
   z-index: -3;
   background-color: #ffffff;
-  background-image: url("./asetts/li.png");
-  background-repeat: no-repeat;
-  background-position: center 15vh;
-  background-size: min(72vw, 880px);
 }
 
 .page-overlay {
@@ -247,11 +243,14 @@ body.is-overlay-light .page-overlay {
 }
 
 .hero-subcopy {
-  margin: 1rem 0 0;
+  margin: 1.3rem 0 0;
   font-size: clamp(1rem, 1.55vw, 1.3rem);
-  line-height: 1.7;
-  letter-spacing: 0.08em;
-  color: rgba(235, 248, 255, 0.9);
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  color: rgba(3, 60, 93, 0.82);
+  opacity: 0;
+  animation: heroWordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1.8s;
 }
 
 .hero-connector {
@@ -473,6 +472,11 @@ body.is-overlay-light .page-overlay {
     animation: none;
   }
 
+  .hero-subcopy {
+    opacity: 1;
+    animation: none;
+  }
+
   .hero-word-accent {
     animation: none;
   }
@@ -678,6 +682,78 @@ h2::after {
   color: #16314b;
 }
 
+.about-lead {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-tagline {
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  font-weight: 700;
+  color: #1f5aa5;
+  margin: 0 0 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.about-lead p {
+  margin: 0 0 1rem;
+}
+
+.works-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.works-text-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.4rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid transparent;
+  box-shadow: 0 8px 20px rgba(96, 95, 95, 0.08);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.works-text-card:hover,
+.works-text-card:focus-within {
+  border-color: #a9c7e8;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(132, 168, 204, 0.3);
+}
+
+.works-category {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(42, 134, 187, 0.08);
+  color: #1f5aa5;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+}
+
+.works-text-card h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.1rem;
+  color: #1f3b58;
+  text-align: left;
+}
+
+.works-text-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.works-text-card .card-link {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
 .member-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -688,7 +764,7 @@ h2::after {
 
 .member-card {
   position: relative;
-  min-height: clamp(450px, 53vw, 580px);
+  min-height: clamp(620px, 60vw, 720px);
   border-radius: 1rem;
   perspective: 1200px;
   cursor: pointer;
@@ -751,6 +827,16 @@ h2::after {
   letter-spacing: 0.08em;
   color: #2f4c67;
   text-transform: uppercase;
+}
+
+.member-name-en {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(36, 36, 36, 0.58);
 }
 
 .member-card h3 {
@@ -1572,13 +1658,17 @@ h2::after {
     grid-template-columns: 1fr;
   }
 
+  .works-list {
+    grid-template-columns: 1fr;
+  }
+
   .member-grid {
     grid-template-columns: 1fr;
   }
 
   .member-card,
   .member-card-inner {
-    min-height: clamp(420px, 50svh, 500px);
+    min-height: clamp(680px, 90svh, 760px);
   }
 
   .member-photo {
@@ -1705,10 +1795,6 @@ h2::after {
     font-size: 0.74rem;
   }
 
-  .page-background {
-    background-position: center 45vh;
-  }
-
 }
 
 
@@ -1721,7 +1807,7 @@ h2::after {
 
   .member-card,
   .member-card-inner {
-    min-height: clamp(460px, 50svh, 560px);
+    min-height: clamp(740px, 100svh, 820px);
   }
 
   .member-face {

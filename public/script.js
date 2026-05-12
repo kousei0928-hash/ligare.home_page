@@ -69,6 +69,10 @@ if (overlayLightZone instanceof HTMLElement) {
 const memberCards = document.querySelectorAll(".member-card");
 memberCards.forEach((card) => {
   if (!(card instanceof HTMLElement)) return;
+  if (!card.querySelector(".member-back")) {
+    card.style.cursor = "default";
+    return;
+  }
 
   card.addEventListener("click", () => {
     card.classList.toggle("is-flipped");

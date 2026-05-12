@@ -4,27 +4,28 @@ import "./globals.css";
 const siteUrl = "https://www.ligare-hiroshima.jp";
 const siteName = "リガーレ(Ligare)";
 const description =
-  "リガーレ(Ligare)は広島大学発の学生スタートアップ。広島を拠点にDX支援、フードロス削減アプリ、JA全農広島との共創事業を展開し、人・サービス・経験・価値をつなぎます。";
+  "Ligare(リガーレ)は広島大学発のAI実装チームです。広島を拠点に、生成AI活用・AI受託開発・AI導入支援・AIを活用したWebアプリ開発を通じて、企業のAIネイティブ化を支援します。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "リガーレ(Ligare)| 広島大学発スタートアップ - DX・フードロス・共創事業",
+    default: "リガーレ(Ligare)｜広島大学発のAI実装チーム｜AI受託開発・AI導入支援",
     template: "%s | リガーレ(Ligare)"
   },
   description,
   keywords: [
-    "リガーレ",
+    "広島 AI",
+    "広島 AI開発",
+    "広島 生成AI",
+    "広島 AI導入支援",
+    "広島 AI研修",
+    "広島 Webアプリ開発",
+    "AI受託開発",
+    "AIネイティブ",
+    "広島大学発",
+    "AI実装チーム",
     "Ligare",
-    "ligare",
-    "りがーれ",
-    "広島大学",
-    "広島 スタートアップ",
-    "学生スタートアップ",
-    "DX 広島",
-    "フードロス 広島",
-    "JA全農広島",
-    "広島 マルシェ"
+    "リガーレ"
   ],
   authors: [{ name: "リガーレ" }],
   alternates: {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "リガーレ(Ligare)| 広島大学発スタートアップ",
+    title: "リガーレ(Ligare)｜広島大学発のAI実装チーム",
     description,
     locale: "ja_JP",
     images: [
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "リガーレ(Ligare)| 広島大学発スタートアップ",
+    title: "リガーレ(Ligare)｜広島大学発のAI実装チーム",
     description,
     images: ["/asetts/lt.png"]
   },
