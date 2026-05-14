@@ -1,0 +1,103 @@
+.page {
+  min-height: 100vh;
+  background: #f6f6f3;
+  color: #242424;
+  padding: 6rem 1.2rem 4rem;
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  line-height: 1.75;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  margin-bottom: 1.4rem;
+}
+
+.breadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #1f5aa5;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.breadLink:hover {
+  color: #2a86bb;
+  text-decoration: underline;
+}
+
+.header {
+  margin-bottom: 2.4rem;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding: 0.28rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(42, 134, 187, 0.1);
+  color: #1f5aa5;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: #033c5d;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin: 0.8rem auto 0;
+  max-width: 720px;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: rgba(36, 36, 36, 0.78);
+  text-align: left;
+}
+
+.imageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-top: 0.4rem;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background-color: rgba(31, 90, 165, 0.06);
+  box-shadow: 0 8px 22px rgba(96, 95, 95, 0.1);
+}
+
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .imageStack {
+    gap: 1.2rem;
+  }
+
+  .subtitle {
+    text-align: left;
+  }
+}

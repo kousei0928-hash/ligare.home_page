@@ -139,7 +139,8 @@ body.is-overlay-light .page-overlay {
 }
 
 #hero,
-.section {
+.section,
+.works-text-card {
   scroll-margin-top: 5.5rem;
 }
 
@@ -522,6 +523,10 @@ body.is-overlay-light .page-overlay {
     animation: none;
   }
 
+  .service-card-inner {
+    transition: none;
+  }
+
   .scroll-reveal {
     opacity: 1;
     transform: none;
@@ -727,6 +732,134 @@ h2::after {
   color: #16314b;
 }
 
+.service-card {
+  position: relative;
+  min-height: clamp(420px, 36vw, 500px);
+  border-radius: 1rem;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.service-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card.is-flipped .service-card-inner {
+  transform: rotateY(180deg);
+}
+
+.service-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.4rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(31, 90, 165, 0.15);
+  box-shadow: 0 8px 20px rgba(96, 95, 95, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.service-card:hover .service-face,
+.service-card:focus-visible .service-face {
+  border-color: #a9c7e8;
+  box-shadow: 0 14px 24px rgba(132, 168, 204, 0.3);
+}
+
+.service-front h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.18rem;
+  color: #033c5d;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.service-front p {
+  margin: 0 0 1.2rem;
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: #2f4c67;
+}
+
+.service-keywords {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.service-keywords li {
+  padding: 0.26rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(42, 134, 187, 0.08);
+  border: 1px solid rgba(42, 134, 187, 0.28);
+  color: #1f5aa5;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.service-back {
+  transform: rotateY(180deg);
+  gap: 1.1rem;
+  overflow-y: auto;
+}
+
+.service-block h4 {
+  margin: 0 0 0.5rem;
+  padding-left: 0.6rem;
+  border-left: 3px solid #2ba9c8;
+  font-size: 0.9rem;
+  color: #1f5aa5;
+  letter-spacing: 0.05em;
+}
+
+.service-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-block li {
+  position: relative;
+  padding-left: 0.95rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #2f4c67;
+}
+
+.service-block li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0.1rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: #2a86bb;
+}
+
+.service-flip-hint {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  text-align: right;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1f5aa5;
+  letter-spacing: 0.04em;
+}
+
 .about-lead {
   max-width: 720px;
   margin: 0 auto;
@@ -783,6 +916,54 @@ h2::after {
   border-color: #a9c7e8;
   transform: translateY(-2px);
   box-shadow: 0 14px 24px rgba(132, 168, 204, 0.3);
+}
+
+.works-text-card[data-href] {
+  cursor: pointer;
+}
+
+.works-text-card[data-href] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.works-text-card[data-href]::before,
+.works-text-card[data-href]::after {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.works-text-card[data-href]::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.32);
+  z-index: 2;
+}
+
+.works-text-card[data-href]::after {
+  content: "詳細を見る →";
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  z-index: 3;
+}
+
+.works-text-card[data-href]:hover::before,
+.works-text-card[data-href]:hover::after,
+.works-text-card[data-href]:focus-within::before,
+.works-text-card[data-href]:focus-within::after {
+  opacity: 1;
+}
+
+.works-text-card[data-href]:hover,
+.works-text-card[data-href]:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px rgba(132, 168, 204, 0.4);
 }
 
 .works-category {
@@ -1767,6 +1948,10 @@ h2::after {
 
   .works-list {
     grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: clamp(460px, 75vh, 560px);
   }
 
   .member-grid {

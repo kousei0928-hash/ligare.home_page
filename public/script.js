@@ -79,6 +79,24 @@ memberCards.forEach((card) => {
   });
 });
 
+const serviceCards = document.querySelectorAll(".service-card");
+serviceCards.forEach((card) => {
+  if (!(card instanceof HTMLElement)) return;
+
+  const toggle = () => {
+    const flipped = card.classList.toggle("is-flipped");
+    card.setAttribute("aria-pressed", String(flipped));
+  };
+
+  card.addEventListener("click", toggle);
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggle();
+    }
+  });
+});
+
 const setupClickableCards = (selector) => {
   const cards = document.querySelectorAll(selector);
   cards.forEach((card) => {
@@ -121,6 +139,7 @@ const setupClickableCards = (selector) => {
 };
 
 setupClickableCards(".work-card[data-href]");
+setupClickableCards(".works-text-card[data-href]");
 setupClickableCards(".card[data-href]");
 
 // Initialize mural logo draw animation by computing path length once.
