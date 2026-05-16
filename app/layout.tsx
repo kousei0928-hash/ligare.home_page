@@ -58,8 +58,11 @@ export const metadata: Metadata = {
     follow: true
   },
   icons: {
-    icon: [{ url: "/images/Ligareマーク.png", type: "image/png" }],
-    apple: [{ url: "/images/Ligareマーク.png" }]
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/Ligareマーク.png", type: "image/png", sizes: "512x512" }
+    ],
+    apple: [{ url: "/images/Ligareマーク.png", sizes: "180x180" }]
   }
 };
 
