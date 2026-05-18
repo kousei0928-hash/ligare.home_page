@@ -2093,7 +2093,7 @@ h2::after {
 
 @media (max-width: 520px) {
   #hero {
-    --hero-bg-size: 175%;
+    --hero-bg-size: cover;
     --hero-bg-position: center top;
   }
 
@@ -2127,7 +2127,7 @@ h2::after {
 @media (max-width: 500px) {
   #hero {
     --hero-bg-position: center top;
-    --hero-bg-size: 180%;
+    --hero-bg-size: cover;
   }
 
   .hero {
