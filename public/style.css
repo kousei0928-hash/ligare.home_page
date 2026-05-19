@@ -1951,7 +1951,19 @@ h2::after {
   }
 
   .service-card {
-    min-height: clamp(460px, 75vh, 560px);
+    min-height: clamp(340px, 56vh, 440px);
+  }
+
+  .service-face {
+    padding: 1.4rem 1.1rem;
+  }
+
+  .service-keywords {
+    margin: 0;
+  }
+
+  .service-flip-hint {
+    padding-top: 0.6rem;
   }
 
   .member-grid {
@@ -1960,7 +1972,12 @@ h2::after {
 
   .member-card,
   .member-card-inner {
-    min-height: clamp(680px, 90svh, 760px);
+    min-height: 0;
+    height: auto;
+  }
+
+  .member-face {
+    position: static;
   }
 
   .member-photo {
@@ -2093,16 +2110,18 @@ h2::after {
 
 @media (max-width: 520px) {
   #hero {
-    --hero-bg-size: 175%;
+    --hero-bg-size: cover;
     --hero-bg-position: center top;
   }
 
   .member-card,
   .member-card-inner {
-    min-height: clamp(740px, 100svh, 820px);
+    min-height: 0;
+    height: auto;
   }
 
   .member-face {
+    position: static;
     padding: 1.15rem;
   }
 
@@ -2127,7 +2146,7 @@ h2::after {
 @media (max-width: 500px) {
   #hero {
     --hero-bg-position: center top;
-    --hero-bg-size: 180%;
+    --hero-bg-size: cover;
   }
 
   .hero {
