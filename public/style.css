@@ -209,11 +209,15 @@ body.is-overlay-light .page-overlay {
   min-width: 0;
   max-width: 760px;
   padding-right: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .hero-eyebrow {
   display: inline-block;
-  margin: 0 0 1rem;
+  align-self: flex-start;
+  margin: 0;
   padding: 0.32rem 0.95rem;
   border-radius: 999px;
   background: rgba(42, 134, 187, 0.1);
@@ -259,7 +263,7 @@ body.is-overlay-light .page-overlay {
 }
 
 .hero-subcopy {
-  margin: 1.5rem 0 0;
+  margin: 0;
   max-width: 38rem;
   font-size: clamp(1rem, 1.4vw, 1.2rem);
   line-height: 1.95;
@@ -273,7 +277,8 @@ body.is-overlay-light .page-overlay {
 .hero-pills {
   list-style: none;
   padding: 0;
-  margin: 1.4rem 0 0;
+  margin: 0;
+  align-self: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -1824,14 +1829,20 @@ h2::after {
     max-width: 100%;
     padding-right: 0;
     text-align: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow,
+  .hero-pills {
+    align-self: center;
   }
 
   .hero-heading {
     font-size: clamp(1.95rem, 8.8vw, 3rem);
+    line-height: 1.5;
   }
 
   .hero-subcopy {
-    margin-top: 0.75rem;
     font-size: clamp(0.94rem, 4vw, 1.12rem);
   }
 
@@ -1843,6 +1854,20 @@ h2::after {
   .hero-logo-draw {
     width: min(70vw, 320px);
     justify-self: center;
+  }
+
+  .hero-pills {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .hero-pills li {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.3rem 0.6rem;
+    font-size: clamp(0.66rem, 2.7vw, 0.82rem);
+    letter-spacing: 0.02em;
   }
 
   h2 {
